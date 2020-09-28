@@ -1,0 +1,410 @@
+//app.js
+import React from "react";
+import './App.css';
+import Header from "./header";
+import Menu from "./Menu";
+import Footer from "./Footer";
+import { Image } from 'semantic-ui-react'
+import { Container} from "semantic-ui-react";
+
+
+  export default function App ({ children }) {
+    return (
+      <Container style={{ margin: 20 }}>
+        <Menu />
+        <Image src = {require('./img/banner.jpg')} fluid style = {{height: 300}}/>
+        <div className="App-header">
+          <Header 
+            text = "Featured Requesters"
+          />
+        </div>  
+        <div style = {{ pading: 20, marginTop: 20, marginLeft: 115 }}>
+          {children}
+        </div>
+        <Footer />
+    </Container>
+
+    )
+  }
+
+
+//App.css
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//App.test.js
+import React from 'react';
+import { render } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  const { getByText } = render(<App />);
+  const linkElement = getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+
+//Card.jsx
+import React from 'react';
+import {Card} from 'semantic-ui-react';
+
+  
+const Items = [
+        {
+            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
+            header: 'Elliot Baker',
+            meta: 'Requester',
+            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+        },
+        {
+            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
+            header: 'Elliot Baker',
+            meta: 'Requester',
+            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+        },
+        {
+            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
+            header: 'Elliot Baker',
+            meta: 'Requester',
+            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+        },
+        {
+            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
+            header: 'Elliot Baker',
+            meta: 'Requester',
+            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+        },
+        {
+            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
+            header: 'Elliot Baker',
+            meta: 'Requester',
+            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+        },
+        {
+            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
+            header: 'Elliot Baker',
+            meta: 'Requester',
+            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+        },
+    ]
+
+  const CardItem = () => <Card.Group items={Items} />
+  
+export default CardItem;
+  
+
+//Footer.jsx
+import React, { Component } from 'react';
+import { Menu, Button, Input, Icon } from 'semantic-ui-react';
+
+export default class MenuExampleHeader extends Component {
+  state = {}
+
+  render() {
+    return (
+      <Menu>
+        <Menu.Item>
+            <b>NEWSLETTER SIGN</b>
+            <Input style = {{width: 200, marginLeft:20}} placeholder = "Enter your email"></Input>
+            <Button primary style = {{marginLeft:20}}>Subscribe</Button>
+            </Menu.Item>
+        <Menu.Item position = 'right'>
+            <b>CONNECT US</b>
+            <Button color='facebook' style = {{marginLeft: 20}}>
+                <Icon name='facebook' />
+            </Button>
+            <Button color='twitter' style = {{marginLeft: 20}}>
+                <Icon name='twitter' />
+            </Button>
+            <Button color='instagram' style = {{marginLeft: 20}}>
+                <Icon name='instagram' />
+            </Button>        
+        </Menu.Item>
+      </Menu>
+    )
+  }
+}
+
+
+//header.jsx
+import React from 'react';
+
+function header (props)
+{
+  return <h1>{props.text}</h1>;
+}
+
+export default header;
+
+
+//index.css
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+//index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './app';
+import Card from "./Card";
+import * as serviceWorker from './serviceWorker';
+
+const styleLink = document.createElement("link");
+styleLink.rel = "stylesheet";
+styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
+document.head.appendChild(styleLink);
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App>
+      <Card />
+    </App>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
+
+//Menu.jsx
+import React, { Component } from 'react';
+import { Menu, Button } from 'semantic-ui-react';
+
+export default class MenuExampleHeader extends Component {
+  state = {}
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    return (
+      <Menu>
+        <Menu.Item header>ICrowedTask</Menu.Item>
+        <Menu.Item
+          name='howItWorks'
+          active={activeItem === 'howItWorks'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='requesters'
+          active={activeItem === 'requesters'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='Workers'
+          active={activeItem === 'Workers'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='pricing'
+          active={activeItem === 'pricing'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='about'
+          active={activeItem === 'about'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item position ='right'><Button primary>Sign in</Button></Menu.Item>
+      </Menu>
+    )
+  }
+}
+
+
+//serviceWorker.js
+// This optional code is used to register a service worker.
+// register() is not called by default.
+
+// This lets the app load faster on subsequent visits in production, and gives
+// it offline capabilities. However, it also means that developers (and users)
+// will only see deployed updates on subsequent visits to a page, after all the
+// existing tabs open on the page have been closed, since previously cached
+// resources are updated in the background.
+
+// To learn more about the benefits of this model and instructions on how to
+// opt-in, read https://bit.ly/CRA-PWA
+
+const isLocalhost = Boolean(
+  window.location.hostname === 'localhost' ||
+    // [::1] is the IPv6 localhost address.
+    window.location.hostname === '[::1]' ||
+    // 127.0.0.0/8 are considered localhost for IPv4.
+    window.location.hostname.match(
+      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+    )
+);
+
+export function register(config) {
+  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+    // The URL constructor is available in all browsers that support SW.
+    const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+    if (publicUrl.origin !== window.location.origin) {
+      // Our service worker won't work if PUBLIC_URL is on a different origin
+      // from what our page is served on. This might happen if a CDN is used to
+      // serve assets; see https://github.com/facebook/create-react-app/issues/2374
+      return;
+    }
+
+    window.addEventListener('load', () => {
+      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+
+      if (isLocalhost) {
+        // This is running on localhost. Let's check if a service worker still exists or not.
+        checkValidServiceWorker(swUrl, config);
+
+        // Add some additional logging to localhost, pointing developers to the
+        // service worker/PWA documentation.
+        navigator.serviceWorker.ready.then(() => {
+          console.log(
+            'This web app is being served cache-first by a service ' +
+              'worker. To learn more, visit https://bit.ly/CRA-PWA'
+          );
+        });
+      } else {
+        // Is not localhost. Just register service worker
+        registerValidSW(swUrl, config);
+      }
+    });
+  }
+}
+
+function registerValidSW(swUrl, config) {
+  navigator.serviceWorker
+    .register(swUrl)
+    .then(registration => {
+      registration.onupdatefound = () => {
+        const installingWorker = registration.installing;
+        if (installingWorker == null) {
+          return;
+        }
+        installingWorker.onstatechange = () => {
+          if (installingWorker.state === 'installed') {
+            if (navigator.serviceWorker.controller) {
+              // At this point, the updated precached content has been fetched,
+              // but the previous service worker will still serve the older
+              // content until all client tabs are closed.
+              console.log(
+                'New content is available and will be used when all ' +
+                  'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
+              );
+
+              // Execute callback
+              if (config && config.onUpdate) {
+                config.onUpdate(registration);
+              }
+            } else {
+              // At this point, everything has been precached.
+              // It's the perfect time to display a
+              // "Content is cached for offline use." message.
+              console.log('Content is cached for offline use.');
+
+              // Execute callback
+              if (config && config.onSuccess) {
+                config.onSuccess(registration);
+              }
+            }
+          }
+        };
+      };
+    })
+    .catch(error => {
+      console.error('Error during service worker registration:', error);
+    });
+}
+
+function checkValidServiceWorker(swUrl, config) {
+  // Check if the service worker can be found. If it can't reload the page.
+  fetch(swUrl, {
+    headers: { 'Service-Worker': 'script' },
+  })
+    .then(response => {
+      // Ensure service worker exists, and that we really are getting a JS file.
+      const contentType = response.headers.get('content-type');
+      if (
+        response.status === 404 ||
+        (contentType != null && contentType.indexOf('javascript') === -1)
+      ) {
+        // No service worker found. Probably a different app. Reload the page.
+        navigator.serviceWorker.ready.then(registration => {
+          registration.unregister().then(() => {
+            window.location.reload();
+          });
+        });
+      } else {
+        // Service worker found. Proceed as normal.
+        registerValidSW(swUrl, config);
+      }
+    })
+    .catch(() => {
+      console.log(
+        'No internet connection found. App is running in offline mode.'
+      );
+    });
+}
+
+export function unregister() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready
+      .then(registration => {
+        registration.unregister();
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  }
+}
+
+
+//setupTests.js
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom/extend-expect';

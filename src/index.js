@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app';
-import CardList from "./CardList";
+import Card from "./Card";
 import * as serviceWorker from './serviceWorker';
 
 const styleLink = document.createElement("link");
@@ -13,7 +13,7 @@ document.head.appendChild(styleLink);
 ReactDOM.render(
   <React.StrictMode>
     <App>
-      <CardList />
+      <Card />
     </App>
   </React.StrictMode>,
   document.getElementById('root')
