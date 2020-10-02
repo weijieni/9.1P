@@ -1,43 +1,44 @@
 import React from 'react';
 import {Card} from 'semantic-ui-react';
+import Facker from 'faker';
 
   
 const Items = [
         {
-            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
-            header: 'Elliot Baker',
+            image: Facker.internet.avatar(),
+            header: Facker.internet.userName(),
             meta: 'Requester',
-            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+            description: Facker.lorem.paragraph()
         },
         {
-            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
-            header: 'Elliot Baker',
+            image: Facker.internet.avatar(),
+            header: Facker.internet.userName(),
             meta: 'Requester',
-            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+            description: Facker.lorem.paragraph()
         },
         {
-            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
-            header: 'Elliot Baker',
+            image: Facker.internet.avatar(),
+            header: Facker.internet.userName(),
             meta: 'Requester',
-            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+            description: Facker.lorem.paragraph()
         },
         {
-            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
-            header: 'Elliot Baker',
+            image: Facker.internet.avatar(),
+            header: Facker.internet.userName(),
             meta: 'Requester',
-            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+            description: Facker.lorem.paragraph()
         },
         {
-            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
-            header: 'Elliot Baker',
+            image: Facker.internet.avatar(),
+            header: Facker.internet.userName(),
             meta: 'Requester',
-            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+            description: Facker.lorem.paragraph()
         },
         {
-            image: 'https://react.semantic-ui.com/images/avatar/large/elliot.jpg',
-            header: 'Elliot Baker',
+            image: Facker.internet.avatar(),
+            header: Facker.internet.userName(),
             meta: 'Requester',
-            description: 'Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+            description: Facker.lorem.paragraph()
         },
     ]
 
